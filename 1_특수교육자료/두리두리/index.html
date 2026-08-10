@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>두리두리 (Duri-Duri) - 특수아동 맞춤형 인터랙티브 학습 교재</title>
+  <meta name="description" content="발달장애, 경계선 지능, ADHD 아동을 위한 감각 친화적 6단계 인터랙티브 학습 플랫폼">
+  
+  <!-- Google Fonts: Gaegu (friendly handwriting) & Noto Sans KR / Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@400;600;700;900&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for rich icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="theme-default shape-rectangle">
+
+  <!-- Background Animated Decorative Elements -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    <div class="floating-shape shape-4"></div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand" id="brandLogo" role="button" tabindex="0">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-text">
+          <h1>두리두리</h1>
+          <span class="sub-title">Duri-Duri Special Edu</span>
+        </div>
+      </div>
+
+      <!-- Control Bar: Theme, Geometric Clip-Path, TTS & Audio Controls -->
+      <div class="controls-bar">
+        
+        <!-- Geometric Clip-Path Selector -->
+        <div class="control-group">
+          <label for="shapeThemeSelect" class="control-label"><i class="fa-solid fa-shapes"></i> 테마 모양:</label>
+          <select id="shapeThemeSelect" class="styled-select">
+            <option value="shape-rectangle">네모 (Rectangle)</option>
+            <option value="shape-triangle">세모 (Triangle)</option>
+            <option value="shape-pentagon">오각형 (Pentagon)</option>
+            <option value="shape-octagon">팔각형 (Octagon)</option>
+          </select>
+        </div>
+
+        <!-- Color Palette Theme Selector -->
+        <div class="control-group">
+          <label for="colorThemeSelect" class="control-label"><i class="fa-solid fa-palette"></i> 색상:</label>
+          <select id="colorThemeSelect" class="styled-select">
+            <option value="theme-default">소프트 파스텔</option>
+            <option value="theme-warm">따뜻한 햇살</option>
+            <option value="theme-mint">싱그러운 민트</option>
+            <option value="theme-dark">편안한 밤 (Dark)</option>
+          </select>
+        </div>
+
+        <!-- Sound & TTS Toggles -->
+        <button id="btnToggleSound" class="icon-btn active" title="효과음 켜기/끄기">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <button id="btnToggleTTS" class="icon-btn active" title="음성 읽기 켜기/끄기">
+          <i class="fa-solid fa-comment-dots"></i>
+        </button>
+
+        <!-- Reward Star Badge Counter -->
+        <div class="star-badge" id="starBadgeBtn" role="button" tabindex="0">
+          <span class="star-icon">⭐</span>
+          <span id="totalStarsCount" class="star-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><button class="nav-tab active" data-tab="curriculum"><i class="fa-solid fa-book-open"></i> 6단계 커리큘럼</button></li>
+        <li><button class="nav-tab" data-tab="self-management"><i class="fa-solid fa-hands-wash"></i> 일상생활 자기관리</button></li>
+        <li><button class="nav-tab" data-tab="appendix"><i class="fa-solid fa-puzzle-piece"></i> 부록 퍼즐</button></li>
+        <li><button class="nav-tab" data-tab="ai-prompt"><i class="fa-solid fa-robot"></i> AI 메타 프롬프트</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Workspace Area -->
+  <main class="app-main" id="mainContent">
+
+    <!-- TAB 1: CURRICULUM SECTION -->
+    <section id="tab-curriculum" class="tab-page active">
+      
+      <!-- Level Selector Grid -->
+      <div class="level-selector-grid">
+        <button class="level-card active" data-level="1">
+          <div class="level-badge">Level 1</div>
+          <div class="level-icon">🧩</div>
+          <h3>기초 인지</h3>
+          <p>색깔, 인물, 감정, 도형, 동식물</p>
+        </button>
+        <button class="level-card" data-level="2">
+          <div class="level-badge">Level 2</div>
+          <div class="level-icon">🔤</div>
+          <h3>글자 & 수</h3>
+          <p>자모결합, 받침결합, 낱말, 수세기, 10보수</p>
+        </button>
+        <button class="level-card" data-level="3">
+          <div class="level-badge">Level 3</div>
+          <div class="level-icon">🖼️</div>
+          <h3>그림 독해</h3>
+          <p>상황 파악 및 이웃 돕기 판단</p>
+        </button>
+        <button class="level-card" data-level="4">
+          <div class="level-badge">Level 4</div>
+          <div class="level-icon">📖</div>
+          <h3>문장 독해</h3>
+          <p>수영장 준비물 상황 문맥 이해</p>
+        </button>
+        <button class="level-card" data-level="5">
+          <div class="level-badge">Level 5</div>
+          <div class="level-icon">🎭</div>
+          <h3>복합 언어</h3>
+          <p>감정 추측, 문장 조합, 5W1H</p>
+        </button>
+        <button class="level-card" data-level="6">
+          <div class="level-badge">Level 6</div>
+          <div class="level-icon">🏛️</div>
+          <h3>사회 규칙</h3>
+          <p>관용어 50문제, 사자성어 50문제, 사회 수칙</p>
+        </button>
+      </div>
+
+      <!-- Activity Workspace Container -->
+      <div id="curriculumActivityArea" class="activity-container clip-theme-container">
+        <!-- Sub activity content injected dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 2: SELF MANAGEMENT SECTION -->
+    <section id="tab-self-management" class="tab-page">
+      <div class="sub-nav-bar">
+        <button class="sub-nav-btn active" data-sub="hygiene"><i class="fa-solid fa-soap"></i> 위생 관리 (손씻기)</button>
+        <button class="sub-nav-btn" data-sub="laundry"><i class="fa-solid fa-shirt"></i> 세탁 분류 (옷정리)</button>
+        <button class="sub-nav-btn" data-sub="dressup"><i class="fa-solid fa-snowflake"></i> 겨울 옷차림 (코디)</button>
+        <button class="sub-nav-btn" data-sub="finance"><i class="fa-solid fa-cash-register"></i> 기초 금융 (마트 2,500원)</button>
+      </div>
+      <div id="selfManagementArea" class="activity-container clip-theme-container">
+        <!-- Self management content injected dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 3: APPENDIX PUZZLES SECTION -->
+    <section id="tab-appendix" class="tab-page">
+      <div class="sub-nav-bar">
+        <button class="sub-nav-btn active" data-sub="spot-diff"><i class="fa-solid fa-magnifying-glass"></i> 부록 1: 틀린그림찾기</button>
+        <button class="sub-nav-btn" data-sub="crossword"><i class="fa-solid fa-table-cells"></i> 부록 2: 4x4 낱말퍼즐</button>
+      </div>
+      <div id="appendixArea" class="activity-container clip-theme-container">
+        <!-- Appendix contents injected dynamically -->
+      </div>
+    </section>
+
+    <!-- TAB 4: AI META PROMPT GENERATOR SECTION -->
+    <section id="tab-ai-prompt" class="tab-page">
+      <div id="aiPromptArea" class="activity-container clip-theme-container">
+        <!-- AI Meta Prompt generator injected dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Star Reward Celebration Overlay Modal -->
+  <div id="celebrationModal" class="modal-overlay hidden">
+    <div class="modal-card clip-theme-card">
+      <div class="star-animation-wrap">⭐🌟✨</div>
+      <h2 id="modalTitle">참 잘했어요!</h2>
+      <p id="modalMsg">문제를 멋지게 해결했어요!</p>
+      <div class="modal-stars-earned">+1 별 수집!</div>
+      <button id="modalCloseBtn" class="primary-btn pulse">다음 학습하기 <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Audio Synthesizer & Application Scripts -->
+  <script src="js/sound.js"></script>
+  <script src="js/tts.js"></script>
+  <script src="js/modules/level1.js"></script>
+  <script src="js/modules/level2.js"></script>
+  <script src="js/modules/level3.js"></script>
+  <script src="js/modules/level4.js"></script>
+  <script src="js/modules/level5.js"></script>
+  <script src="js/modules/level6.js"></script>
+  <script src="js/modules/selfManagement.js"></script>
+  <script src="js/modules/appendix.js"></script>
+  <script src="js/modules/aiPrompt.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
